@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 | Page not found</title>
+  <meta name="robots" content="noindex,follow" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Optional: font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  
+  <style>
+    :root{
+      --bg1:#6a6a6a;
+      --bg2:#0b0b0b;
+      --glass: rgba(255,255,255,0.08);
+      --glass2: rgba(255,255,255,0.05);
+      --stroke: rgba(255,255,255,0.16);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --accent:#00d4ff;
+      --accent2:#8a5bff;
+      --shadow: 0 20px 70px rgba(0,0,0,0.55);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body { height:100%; margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+    body{
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 20%, rgba(0,212,255,0.14), transparent 60%),
+        radial-gradient(900px 500px at 80% 70%, rgba(138,91,255,0.16), transparent 60%),
+        linear-gradient(to bottom, var(--bg1), var(--bg2));
+      overflow:auto;
+    }
+
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        radial-gradient(1200px 700px at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 75%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='190' height='190' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      pointer-events:none;
+      opacity:.55;
+    }
+
+    .wrap{
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 22px;
+    }
+
+    .card{
+      width:min(980px, 100%);
+      border-radius: 28px;
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      overflow:hidden;
+      position:relative;
+      transform: translateY(10px);
+      opacity:0;
+      animation: intro .7s ease forwards;
+    }
+
+    @keyframes intro{
+      to{ transform: translateY(0); opacity:1; }
+    }
+
+    .card::after{
+      content:"";
+      position:absolute; left:-30%; right:-30%; top:-2px; height:2px;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,.9), rgba(138,91,255,.9), transparent);
+      opacity:.9;
+    }
+
+    .inner{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 0;
+      padding: 44px;
+      align-items:center;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width: fit-content;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.18);
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing:.2px;
+      margin-bottom: 18px;
+    }
+
+    .pulse{
+      width:10px; height:10px;
+      border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(0,212,255,0.6);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse{
+      0%{ box-shadow: 0 0 0 0 rgba(0,212,255,0.65); }
+      70%{ box-shadow: 0 0 0 10px rgba(0,212,255,0); }
+      100%{ box-shadow: 0 0 0 0 rgba(0,212,255,0); }
+    }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.05;
+      letter-spacing: -0.8px;
+    }
+
+    .grad{
+      background: linear-gradient(90deg, #ffffff, rgba(255,255,255,0.75), rgba(0,212,255,0.95));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+
+    .sub{
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height:1.6;
+      max-width: 58ch;
+    }
+
+    .hint{
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-top: 10px;
+    }
+
+    .actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,255,255,0.9);
+      text-decoration:none;
+      font-weight:600;
+      font-size: 14px;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(0,212,255,0.45);
+    }
+    .btn.primary{
+      border: none;
+      background: linear-gradient(90deg, rgba(0,212,255,0.95), rgba(138,91,255,0.95));
+      color: #0b0b0b;
+      box-shadow: 0 12px 30px rgba(0,212,255,0.16);
+    }
+    .btn.primary:hover{
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(138,91,255,0.18);
+    }
+
+    .socials{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      margin-top: 22px;
+    }
+
+    .icon{
+      width: 44px; height: 44px;
+      display:grid;
+      place-items:center;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.18);
+      color: rgba(255,255,255,0.88);
+      text-decoration:none;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .icon::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(0,212,255,0.28), transparent 55%),
+        radial-gradient(circle at 70% 80%, rgba(138,91,255,0.22), transparent 55%);
+      opacity:0;
+      transition: opacity .2s ease;
+    }
+    .icon i{ position:relative; font-size: 18px; }
+    .icon:hover{
+      transform: translateY(-4px);
+      border-color: rgba(0,212,255,0.45);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+    .icon:hover::before{ opacity:1; }
+
+    /* big 404 mark */
+    .mark{
+      justify-self:end;
+      text-align:right;
+      padding-left: 18px;
+    }
+    .code{
+      font-size: 120px;
+      font-weight: 900;
+      letter-spacing: -4px;
+      line-height: 1;
+      background: linear-gradient(90deg, rgba(0,212,255,0.95), rgba(138,91,255,0.95));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.45));
+    }
+    .small{
+      margin-top: 10px;
+      color: rgba(255,255,255,0.62);
+      font-size: 14px;
+    }
+
+  
+    @media (max-width: 920px){
+      .inner{
+        grid-template-columns: 1fr;
+        padding: 34px 26px;
+      }
+      .mark{
+        justify-self:start;
+        text-align:left;
+        padding-left:0;
+        margin-top: 12px;
+      }
+      .code{ font-size: 88px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; }
+      .card{ opacity:1 !important; transform:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <main class="card">
+      <div class="inner">
+        <section>
+          <div class="badge">
+            <span class="pulse" aria-hidden="true"></span>
+            <span>You hit a dead link</span>
+          </div>
+
+          <h1>Page <span class="grad">not found</span></h1>
+          <p class="sub">
+            The page you’re looking for doesn’t exist or has been moved.
+            You can go back home.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="index.html">
+              <i class="fa-solid fa-house"></i>
+              Home page
+            </a>
+
+            
+
+          <div class="hint">
+            Error code: <strong>404</strong> • If you think this is a mistake, contact me.
+          </div>
+        </section>
+
+        <aside class="mark">
+          <div class="code">404</div>
+          <div class="small">Lost in the test environment.</div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  
+</body>
+</html>

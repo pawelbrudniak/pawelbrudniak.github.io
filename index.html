@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paweł Brudniak | Software Tester & QA Engineer</title>
+  <meta name="description" content="QA Engineer portfolio of Paweł Brudniak — test analysis, test cases, defect reporting, and practical QA projects. Book a call via Calendly and view my GitHub work." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://pawelbrudniak.com/" /> 
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Paweł Brudniak" />
+  <meta property="og:title" content="Paweł Brudniak | QA Engineer Portfolio" />
+  <meta property="og:description" content="Test analysis, test cases, defect reporting, and QA projects. Book a call or explore my work." />
+  <meta property="og:url" content="https://pawelbrudniak.com/" />
+  <meta property="og:image" content="https://pawelbrudniak.com/og-img.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Paweł Brudniak | QA Engineer Portfolio" />
+  <meta name="twitter:description" content="Test analysis, test cases, defect reporting, and QA projects. Book a call or explore my work." />
+  <meta name="twitter:image" content="https://pawelbrudniak.com/og-img.jpg" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico" sizes="32x23">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b0b0b">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Optional: nice modern font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+  
+  <style>
+    :root{
+      --bg1:#6a6a6a;
+      --bg2:#0b0b0b;
+      --glass: rgba(255,255,255,0.08);
+      --glass2: rgba(255,255,255,0.05);
+      --stroke: rgba(255,255,255,0.16);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --accent:#00d4ff;
+      --accent2:#8a5bff;
+      --shadow: 0 20px 70px rgba(0,0,0,0.55);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body { height:100%; margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+    body{
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 20%, rgba(0,212,255,0.14), transparent 60%),
+        radial-gradient(900px 500px at 80% 70%, rgba(138,91,255,0.16), transparent 60%),
+        linear-gradient(to bottom, var(--bg1), var(--bg2));
+      overflow:hidden;
+    }
+
+    /* Subtelny "film grain" + soft vignette */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        radial-gradient(1200px 700px at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 75%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='190' height='190' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      pointer-events:none;
+      opacity:.6;
+    }
+
+    .wrap{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px;
+    }
+
+    .card{
+      width:min(1200px, 100%);
+      height:min(680px, 92vh);
+      border-radius: 28px;
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      position:relative;
+      transform: translateY(10px);
+      opacity:0;
+      animation: intro .9s ease forwards;
+    }
+
+    @keyframes intro{
+      to{ transform: translateY(0); opacity:1; }
+    }
+
+    /* Glow line top */
+    .card::after{
+      content:"";
+      position:absolute; left:-30%; right:-30%; top:-2px; height:2px;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,.9), rgba(138,91,255,.9), transparent);
+      filter: blur(.2px);
+      opacity:.9;
+    }
+
+    .left{
+      padding: 52px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 18px;
+      position:relative;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width: fit-content;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.18);
+      color: var(--muted);
+      letter-spacing:.2px;
+      font-size: 13px;
+    }
+
+    .pulse{
+      width:10px; height:10px;
+      border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(0,212,255,0.6);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse{
+      0%{ box-shadow: 0 0 0 0 rgba(0,212,255,0.65); }
+      70%{ box-shadow: 0 0 0 10px rgba(0,212,255,0); }
+      100%{ box-shadow: 0 0 0 0 rgba(0,212,255,0); }
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(38px, 4.2vw, 56px);
+      line-height:1.05;
+      letter-spacing: -0.9px;
+    }
+
+    .grad{
+      background: linear-gradient(90deg, #ffffff, rgba(255,255,255,0.78), rgba(0,212,255,0.95));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height:1.6;
+      max-width: 46ch;
+    }
+
+    .ctaRow{
+      margin-top: 10px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,255,255,0.9);
+      text-decoration:none;
+      font-weight:600;
+      font-size: 14px;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      will-change: transform;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(0,212,255,0.45);
+    }
+
+    .btn.primary{
+      border: none;
+      background: linear-gradient(90deg, rgba(0,212,255,0.95), rgba(138,91,255,0.95));
+      color: #0b0b0b;
+      box-shadow: 0 12px 30px rgba(0,212,255,0.16);
+    }
+    .btn.primary:hover{
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(138,91,255,0.18);
+    }
+
+    .socials{
+      margin-top: 18px;
+      display:flex;
+      gap: 14px;
+      align-items:center;
+    }
+
+    .icon{
+      width: 46px; height: 46px;
+      display:grid;
+      place-items:center;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.18);
+      color: rgba(255,255,255,0.88);
+      text-decoration:none;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .icon::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 20%, rgba(0,212,255,0.28), transparent 55%),
+                  radial-gradient(circle at 70% 80%, rgba(138,91,255,0.22), transparent 55%);
+      opacity:0;
+      transition: opacity .2s ease;
+    }
+
+    .icon i{ position:relative; font-size: 20px; }
+
+    .icon:hover{
+      transform: translateY(-4px);
+      border-color: rgba(0,212,255,0.45);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+    .icon:hover::before{ opacity:1; }
+
+    .hint{
+      margin-top: 6px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* PRAWA STRONA (zdjęcie) */
+    .right{
+      position:relative;
+      background: rgba(0,0,0,0.18);
+    }
+
+    .right::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(11,11,11,0.75) 0%, rgba(11,11,11,0.25) 40%, rgba(11,11,11,0.0) 100%),
+        radial-gradient(900px 600px at 60% 40%, rgba(0,212,255,0.10), transparent 60%),
+        radial-gradient(900px 600px at 75% 70%, rgba(138,91,255,0.12), transparent 60%);
+      pointer-events:none;
+      z-index: 2;
+    }
+
+    .photo{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      filter: contrast(1.06) saturate(1.05);
+      opacity:0;
+      animation: photoIn 1.1s ease .2s forwards;
+    }
+    @keyframes photoIn{
+      to{ opacity:1; transform: scale(1.0); }
+    }
+
+    /* floating blob */
+    .blob{
+      position:absolute;
+      width: 420px; height: 420px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(0,212,255,0.35), transparent 60%),
+                  radial-gradient(circle at 70% 70%, rgba(138,91,255,0.28), transparent 60%);
+      filter: blur(18px);
+      opacity: .55;
+      left: -120px;
+      bottom: -140px;
+      z-index: 1;
+      animation: float 7s ease-in-out infinite;
+      pointer-events:none;
+    }
+    @keyframes float{
+      0%,100%{ transform: translate(0,0) scale(1); }
+      50%{ transform: translate(18px,-16px) scale(1.03); }
+    }
+
+    /* RESPONSYWNOŚĆ */
+    @media (max-width: 980px){
+      body{ overflow:auto; }
+      .card{
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .right{
+        min-height: 52vh;
+      }
+      .left{
+        padding: 42px 28px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition:none !important; }
+      .card, .photo{ opacity: 1 !important; transform:none !important; }
+    }
+
+    /* ===== Calendly Modal (WOW, centered) ===== */
+.modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.modal.is-open{
+  display: grid;
+  place-items: center;
+}
+
+.modal__backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: modalFade .18s ease forwards;
+}
+
+@keyframes modalFade{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+.modal__panel{
+  position: relative;
+  width: min(980px, calc(100% - 28px));
+  height: min(90vh, 720px);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(16,16,16,0.55);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.70);
+  overflow: hidden;
+  z-index: 1;
+  transform: translateY(14px) scale(.99);
+  opacity: 0;
+  animation: modalPop .22s ease forwards;
+}
+
+@keyframes modalPop{
+  to{ transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Calendly fills the panel */
+.modal__panel--calendly{
+  padding: 0;
+}
+
+/* Pretty close button */
+.modal__close{
+  position:absolute;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.35);
+  color: rgba(255,255,255,0.92);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  z-index: 3;
+}
+
+.modal__close:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(0,212,255,0.45);
+}
+
+/* Optional: mobile tweak */
+@media (max-width: 640px){
+  .modal__panel{
+    width: calc(100% - 18px);
+    height: 92vh;
+    border-radius: 18px;
+  }
+}   
+
+
+
+
+
+/* ===== Mobile fix: content must not hide above viewport ===== */
+@media (max-width: 980px){
+  /* na mobile pozwól stronie normalnie scrollować */
+  body{ overflow:auto; }
+
+  /* karta niech nie próbuje być "sztywno" wycentrowana w pionie */
+  .wrap{
+    height: auto;
+    min-height: 100vh;
+    align-items: stretch;      /* zamiast center */
+    padding: 18px;
+  }
+
+  .card{
+    height: auto;              /* zamiast min(680px, 92vh) */
+    min-height: calc(100vh - 36px);
+  }
+
+  /* najważniejsze: lewa sekcja ma start u góry, nie center */
+  .left{
+    justify-content: flex-start;
+    padding: 28px 22px;
+    padding-top: max(28px, env(safe-area-inset-top));
+  }
+
+  /* prawa sekcja jako zdjęcie niech ma sensowną minimalną wysokość */
+  .right{
+    min-height: 42vh;          /* możesz dać 35–55vh zależnie od gustu */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 420px){
+  .left h1{ font-size: 34px; }
+  .ctaRow{ gap: 10px; }
+}
+  </style>
+
+ <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Paweł Brudniak",
+  "jobTitle": "QA Engineer",
+  "url": "https://pawelbrudniak.com/",
+  "image": "https://pawelbrudniak.com/photo.png",
+  "sameAs": [
+    "https://www.linkedin.com/in/pawelbrudniak/",
+    "https://github.com/pawelbrudniak",
+    "https://stackoverflow.com/users/4682171"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Paweł Brudniak | QA Engineer Portfolio",
+  "url": "https://pawelbrudniak.com/",
+  "inLanguage": "en-US"
+}
+</script>
+</head>
+
+<body>
+  <div class="wrap">
+    <main class="card">
+      <section class="left">
+        <div class="badge">
+          <span class="pulse" aria-hidden="true"></span>
+          <span>Portfolio in progress</span>
+        </div>
+
+        <h1>
+          Website almost ready<br>
+          to <span class="grad">launch</span>
+        </h1>
+
+        <p class="sub">
+          I’m putting the finishing touches on my QA portfolio and projects.
+          In the meantime, you can find me here:
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="#" id="openCalendly">
+            <i class="fa-solid fa-calendar-check"></i>
+            Book a call
+            </a>
+          <a class="btn" href="https://github.com/pawelbrudniak" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i>
+            View projects
+          </a>
+        </div>
+
+        <div class="socials" aria-label="Social links">
+          <a class="icon" href="https://www.linkedin.com/in/pawelbrudniak/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a class="icon" href="https://github.com/pawelbrudniak" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a class="icon" href="mailto:contact@pawelbrudniak.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+          <a class="icon" href="https://stackoverflow.com/users/4682171" target="_blank" rel="noopener" aria-label="Stack Overflow">
+            <i class="fa-brands fa-stack-overflow"></i>
+          </a>
+          <a class="icon" href="https://calendly.com/pawelbrudniak/30min" target="_blank" rel="noopener" aria-label="Calendly">
+            <i class="fa-solid fa-calendar-days"></i>
+          </a>
+        </div>
+
+        <!-- <div class="hint">
+          hint
+        </div> -->
+      </section>
+
+      <section class="right" aria-label="Photo panel">
+        <div class="blob" aria-hidden="true"></div>
+        <img class="photo" src="photo.png" alt="my photo">
+      </section>
+    </main>
+  </div>
+<!-- Calendly Modal -->
+<div class="modal" id="calendlyModal" aria-hidden="true">
+  <div class="modal__backdrop" data-close="true"></div>
+
+  <div class="modal__panel modal__panel--calendly" role="dialog" aria-modal="true" aria-label="Calendly booking">
+    <button class="modal__close" type="button" aria-label="Close" data-close="true">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="calendly-inline-widget"
+         data-url="https://calendly.com/pawelbrudniak/30min"
+         style="min-width:320px;height:100%;">
+    </div>
+  </div>
+</div>
+<!-- modal end -->
+<!-- JS calendly modal -->
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const openBtn = document.getElementById("openCalendly");
+  const modal = document.getElementById("calendlyModal");
+
+  const open = () => {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  const close = () => {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  openBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    open();
+  });
+
+  modal?.addEventListener("click", (e) => {
+    if (e.target.dataset.close === "true") close();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) close();
+  });
+});
+</script>
+<!-- JS calendly modal end -->
+</body>
+</html>
