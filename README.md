@@ -1,1 +1,1 @@
-# pawelbrudniak.github.io
+# pawelbrudniak.com
